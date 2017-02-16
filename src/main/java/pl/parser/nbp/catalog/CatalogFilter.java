@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 /**
  * @author activey
  */
-public class CatalogFilter {
+public final class CatalogFilter {
 
     public static Predicate<String> sellAndBuyRatesOnly() {
         return directoryFileLine -> directoryFileLine.startsWith("c");

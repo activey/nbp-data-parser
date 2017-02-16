@@ -1,10 +1,10 @@
 package pl.parser.nbp.command;
 
 import org.fest.util.VisibleForTesting;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import static java.lang.String.format;
 
 /**
  * This class is responsible for parsing command line string arguments into set of parameters for computation.
@@ -12,6 +12,8 @@ import java.time.format.DateTimeParseException;
  * @author activey
  */
 public class CommandLineOptionsParser {
+
+    private static final int REQUIRED_ARGS_LENGTH = 3;
 
     public CommandLineOptions parseCommandLineOptions(String... applicationArguments)
             throws CommandLineParsingException {
@@ -54,8 +56,9 @@ public class CommandLineOptionsParser {
     }
 
     private void validateArgumentsLength(String[] applicationArguments) throws CommandLineParsingException {
-        if (applicationArguments.length != 3) {
-            throw new CommandLineParsingException("Wrong number of arguments passed!");
+        if (applicationArguments.length != REQUIRED_ARGS_LENGTH) {
+            throw new CommandLineParsingException(
+                format("Wrong number of arguments passed, required length = %s.", REQUIRED_ARGS_LENGTH));
         }
     }
 }
