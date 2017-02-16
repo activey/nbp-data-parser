@@ -1,6 +1,7 @@
 package pl.parser.nbp.aggregator;
 
 import org.apache.commons.math3.stat.descriptive.moment.StandardDeviation;
+import org.fest.util.VisibleForTesting;
 
 import static java.util.Arrays.copyOf;
 
@@ -31,5 +32,10 @@ public class ValuesAggregator {
     public double sellValueDeviation() {
         StandardDeviation deviationEvaluator = new StandardDeviation(false);
         return deviationEvaluator.evaluate(sellValues);
+    }
+
+    @VisibleForTesting
+    double[] getSellValues() {
+        return sellValues;
     }
 }
