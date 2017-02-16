@@ -131,7 +131,7 @@ public class RatesXMLReader extends DefaultHandler {
         try {
             return doubleFormatter.parse(stringDoubleValue).doubleValue();
         } catch (ParseException e) {
-            LOGGER.error("An error has occurred while parding double value: {}.", stringDoubleValue, e);
+            LOGGER.error("An error has occurred while parsing double value: {}.", stringDoubleValue, e);
             return 0;
         }
     }
